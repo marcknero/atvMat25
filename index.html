@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATEC - MATEMÁTICA PARA COMPUTAÇÃO</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="body">
+    <main class="container main">
+        <img src="img/Logo-Fatec.jpg" alt="Logo FATEC">
+        <section class="divisor">
+            <div class="divisor__line"></div>
+            <img src="img/fade_bar.svg" alt="Visual bar" class="divisor__bar">
+            <div class="divisor__line"></div>
+        </section>
+        <h1 class="page-title">Supermercado <span class="page-title__emphasis">FATEC</span></h1>
+        <section class="dashboard">
+            <ul class="dashboard__items">
+            <div>
+                <li class="dashboard__items__item" id="item-1">
+                    <div class="dashboard__item__img">
+                        <img src="img/pao.jpg" alt="Pão Francês">
+                    </div>
+                    <p class="dashboard__item__name">Pão</p>
+                    <a onclick="addCarrinho(0)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+                <li class="dashboard__items__item" id="item-2">
+                    <div class="dashboard__item__img">
+                        <img src="img/tomate.jpg" alt="Tomates cortados">
+                    </div>
+                    <p class="dashboard__item__name">Tomate</p>
+                    <a onclick="addCarrinho(1)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+                <li class="dashboard__items__item" id="item-3">
+                    <div class="dashboard__item__img">
+                        <img src="img/alface.jpg" alt="Alface fresca">
+                    </div>
+                    <p class="dashboard__item__name">Alface</p>
+                    <a onclick="addCarrinho(2)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+                <li class="dashboard__items__item" id="item-4">
+                    <div class="dashboard__item__img dashboard__item__img--rented">
+                        <img src="img/queijo.jpg" alt="Bloco de queijo e algumas fatias">
+                    </div>
+                    <p class="dashboard__item__name">Queijo 100g</p>
+                    <a onclick="addCarrinho(3)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+            </div>
+            <div>
+                <li class="dashboard__items__item" id="item-5">
+                    <div class="dashboard__item__img dashboard__item__img--rented">
+                        <img src="img/ovo.jpg" alt="Caixa de ovos">
+                    </div>
+                    <p class="dashboard__item__name">Ovo Dúzia</p>
+                    <a onclick="addCarrinho(4)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+                <li class="dashboard__items__item" id="item-6">
+                    <div class="dashboard__item__img dashboard__item__img--rented">
+                        <img src="img/leite.jpg" alt="Capa jogo Takenoko">
+                    </div>
+                    <p class="dashboard__item__name">Leite</p>
+                    <a onclick="addCarrinho(5)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+                <li class="dashboard__items__item" id="item-7">
+                    <div class="dashboard__item__img dashboard__item__img--rented">
+                        <img src="img/ketchup.jpg" alt="Capa jogo Takenoko">
+                    </div>
+                    <p class="dashboard__item__name">Ketchup</p>
+                    <a onclick="addCarrinho(6)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+                <li class="dashboard__items__item" id="item-8">
+                    <div class="dashboard__item__img dashboard__item__img--rented">
+                        <img src="img/refrigerante.jpg" alt="Capa jogo Takenoko">
+                    </div>
+                    <p class="dashboard__item__name">Refrigerante</p>
+                    <a onclick="addCarrinho(7)" href="#" class="dashboard__item__button">Adicionar ao carrinho</a>
+                </li>
+            </div>
+        </section>
+        <section class="dashboard__cart disabled">
+            <label for="cart" id="cart__label">Carrinho:</label>
+            <ul id="cart"></ul>
+            <p id="cart__total">Total: R$ 0,00</p>
+            <button id="cart__button" class="dashboard__cart__button" onclick="finalizarCompra()">Finalizar Compra</button>
+        </section>
+        <section class="dashboard__return disabled">
+            <h2 class="page-title">Sua compra:</h2>
+            
+            <div class="dashboard__return__sugestion"></div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

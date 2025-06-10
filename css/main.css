@@ -180,3 +180,28 @@ li img {
  .disabled {
     display: none;
 }
+
+@media (max-width: 900px) {
+    .dashboard__items {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dashboard__items__item {
+        margin-bottom: 2rem;
+    }
+    main > img {
+        width: 100%;
+        height: auto;
+    }
+    .dashboard, .dashboard__cart, .dashboard__return {
+        padding: 1rem;
+        margin: 2rem 0;
+        width: 100%;
+    }
+    .divisor__line {
+        width: 80px;
+    }
+    .page-title {
+        font-size: 2.5rem;
+    }
+}

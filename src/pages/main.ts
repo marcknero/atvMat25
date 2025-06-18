@@ -1,5 +1,5 @@
-import { ProductKnnSuggester } from "./knnSuggester";
-import { TrainingProduct, ProductOption } from "./types";
+import { ProductKnnSuggester } from "../core/knnSuggester";
+import { TrainingProduct, ProductOption } from "../core/types";
 
 // --- Definindo Nossas Opções e Produtos de Treinamento ---
 

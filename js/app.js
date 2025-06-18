@@ -1,3 +1,4 @@
+// Mantendo a lista de produtos original com as características booleanas
 const produtos = [
     // Produtos alimentícios
     { id: 1, nome: 'Pão', preco: 0.90, imagem: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: true },
@@ -27,6 +28,7 @@ const produtos = [
 let listaProdutos = [];
 let carrinhoValor = 0;
 
+// Funções básicas do carrinho e interface
 function addCarrinho(i) {
     listaProdutos.push(produtos[i].nome);
     showAlert(`${produtos[i].nome} adicionado ao carrinho!`);
@@ -61,7 +63,6 @@ function renderProdutos() {
         const imgDiv = document.createElement('div');
         imgDiv.className = 'dashboard__item__img';
         
-        // Se tiver imagem, adiciona
         if (produto.imagem) {
             const img = document.createElement('img');
             img.src = produto.imagem;
@@ -114,38 +115,28 @@ function renderCarrinho() {
     document.getElementById('cart__total').textContent = `Total: R$ ${carrinhoValor.toFixed(2)}`;
     
     // Mostra/esconde o carrinho baseado se tem itens
-    document.querySelector('.dashboard__cart').classList.toggle('disabled', listaProdutos.length === 0);
+    const carrinhoElement = document.querySelector('.dashboard__cart');
+    if (carrinhoElement) {
+        carrinhoElement.classList.toggle('disabled', listaProdutos.length === 0);
+    }
 }
 
-// Função simplificada para calcular similaridade
-function calcularSimilaridade(produto1, produto2) {
-    // Normalização do preço para escala [0,1]
-    const precoMax = Math.max(...produtos.map(p => p.preco));
+// Nova função simplificada de similaridade - APENAS alimento e perecível
+function calcularSimilaridadeBooleana(produto1, produto2) {
+    // Verifica se ambas as características são iguais
+    const mesmoAlimento = produto1.alimento === produto2.alimento;
+    const mesmoPerecivel = produto1.perecivel === produto2.perecivel;
     
-    // Calcular similaridade para cada característica
-    const similAlimento = produto1.alimento === produto2.alimento ? 1 : 0;
-    const similPerecivel = produto1.perecivel === produto2.perecivel ? 1 : 0;
+    // Contagem de características iguais (0, 1 ou 2)
+    let similaridade = 0;
+    if (mesmoAlimento) similaridade += 1;
+    if (mesmoPerecivel) similaridade += 1;
     
-    // Calcular diferença de preço normalizada
-    const precoNorm1 = produto1.preco / precoMax;
-    const precoNorm2 = produto2.preco / precoMax;
-    const similPreco = 1 - Math.abs(precoNorm1 - precoNorm2);
-    
-    // Pesos para cada característica
-    const pesoAlimento = 0.5;    // Alto peso para mesma categoria
-    const pesoPerecivel = 0.3;   // Peso médio para perecibilidade
-    const pesoPreco = 0.2;       // Peso menor para preço
-    
-    // Similaridade final ponderada
-    const similaridadeTotal = 
-        (pesoAlimento * similAlimento) +
-        (pesoPerecivel * similPerecivel) +
-        (pesoPreco * similPreco);
-    
-    return similaridadeTotal;
+    // Normaliza para [0,1]
+    return similaridade / 2;
 }
 
-// Função simplificada para obter recomendações KNN
+// Função para obter recomendações com base em todo o carrinho
 function obterRecomendacoesKNN(carrinhoIds, k = 4) {
     // Se o carrinho estiver vazio, retorna produtos aleatórios
     if (carrinhoIds.length === 0) {
@@ -157,14 +148,16 @@ function obterRecomendacoesKNN(carrinhoIds, k = 4) {
     // Obter produtos no carrinho
     const produtosNoCarrinho = produtos.filter(p => carrinhoIds.includes(p.id));
     
-    // Para cada produto que não está no carrinho, calcular similaridade com produtos do carrinho
+    // Para cada produto que não está no carrinho, calcular similaridade média com TODOS os produtos do carrinho
     const recomendacoes = produtos
         .filter(p => !carrinhoIds.includes(p.id))
         .map(produto => {
             // Calcular similaridade média com todos os produtos no carrinho
-            const similaridadeMedia = produtosNoCarrinho.reduce((acc, produtoCarrinho) => {
-                return acc + calcularSimilaridade(produto, produtoCarrinho);
-            }, 0) / produtosNoCarrinho.length;
+            const similaridadeTotal = produtosNoCarrinho.reduce((acc, produtoCarrinho) => {
+                return acc + calcularSimilaridadeBooleana(produto, produtoCarrinho);
+            }, 0);
+            
+            const similaridadeMedia = similaridadeTotal / produtosNoCarrinho.length;
             
             return {
                 produto: produto,
@@ -181,9 +174,10 @@ function obterRecomendacoesKNN(carrinhoIds, k = 4) {
     return recomendacoes;
 }
 
+// Função de renderização das recomendações
 function renderSugestoes() {
     const sugestoesDiv = document.getElementById('sugestoes-container');
-    sugestoesDiv.innerHTML = "<h3>Recomendados para você:</h3>";
+    sugestoesDiv.innerHTML = "<h3>Produtos similares aos do seu carrinho:</h3>";
     
     // Extrair IDs dos produtos no carrinho
     const produtosNoCarrinhoIDs = [];
@@ -192,7 +186,7 @@ function renderSugestoes() {
         if (produto) produtosNoCarrinhoIDs.push(produto.id);
     });
     
-    // Obter sugestões usando KNN simplificado
+    // Obter sugestões usando KNN booleano simplificado
     const sugeridos = obterRecomendacoesKNN(produtosNoCarrinhoIDs, 4);
     
     if (sugeridos.length === 0) {
@@ -233,13 +227,23 @@ function renderSugestoes() {
         preco.textContent = `R$ ${produto.preco.toFixed(2)}`;
         info.appendChild(preco);
         
-        // Badge de compatibilidade simplificado
+        // Exibir características do produto para mostrar por que foi sugerido
         if (produtosNoCarrinhoIDs.length > 0) {
+            const caracteristicas = document.createElement('div');
+            caracteristicas.className = 'caracteristicas';
+            
+            // Adicionar ícones para cada característica
+            const alimentoIcon = produto.alimento ? '🍔' : '🧴';
+            const perecivelIcon = produto.perecivel ? '⏱️' : '📦';
+            
             const match = Math.round(produto.similaridade * 100);
-            const matchEl = document.createElement('span');
-            matchEl.className = 'match';
-            matchEl.textContent = `${match}% match`;
-            info.appendChild(matchEl);
+            caracteristicas.innerHTML = `
+                <span class="caracteristica">${alimentoIcon} ${produto.alimento ? 'Alimento' : 'Não é alimento'}</span>
+                <span class="caracteristica">${perecivelIcon} ${produto.perecivel ? 'Perecível' : 'Não perecível'}</span>
+                <span class="match">${match}% similar</span>
+            `;
+            
+            info.appendChild(caracteristicas);
         }
         
         li.appendChild(info);
@@ -293,7 +297,7 @@ styleEl.textContent = `
     gap: 10px;
     background: rgba(255,255,255,0.05);
     border-radius: 6px;
-    padding: 8px;
+    padding: 10px;
     list-style: none;
 }
 
@@ -304,15 +308,30 @@ styleEl.textContent = `
     font-size: 0.9rem;
 }
 
+.caracteristicas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.caracteristica {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
 .match {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     background: #00F4BF;
     color: #111;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     padding: 2px 6px;
     border-radius: 10px;
-    margin-top: 4px;
-    align-self: flex-start;
 }
 
 .sugestao-btn {

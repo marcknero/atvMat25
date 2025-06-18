@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supermercado Fatec - Compras Online</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <div class="text-white text-3xl font-extrabold">Supermercado Fatec</div>
+
+        <nav class="hidden md:block">
+          <ul class="flex space-x-6">
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+                >Início</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+                >Ofertas</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+                >Categorias</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+                >Minhas Compras</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+                >Contato</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- Ícone do Carrinho -->
+        <div class="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-white cursor-pointer"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.769.743 1.769H19a2 2 0 002-2v-3a2 2 0 00-2-2H7z"
+            />
+          </svg>
+          <span
+            id="cart-count"
+            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+            >0</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+          Nossos Produtos
+        </h2>
+        <div class="products-grid grid gap-6">
+          <!-- Card de Produto 1: Pão Francês -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/F1E6D3/3B3B3B?text=Pão+Francês"
+              alt="Pão Francês"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">Pão Francês</h3>
+              <p class="text-gray-600 text-sm mt-1">
+                Crocante por fora, macio por dentro.
+              </p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 0,50</span>
+                <span class="text-gray-500">/unidade</span>
+              </div>
+              <button class="add-to-cart-button" data-product-id="pao_frances">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 2: Queijo Minas Frescal -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/E3E8ED/3B3B3B?text=Queijo+Minas"
+              alt="Queijo Minas Frescal"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Queijo Minas Frescal
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">
+                Sabor suave e textura macia.
+              </p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 28,90</span>
+                <span class="text-gray-500">/kg</span>
+              </div>
+              <button class="add-to-cart-button" data-product-id="queijo_minas">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 3: Ovo Branco Grande -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/F0F0F0/3B3B3B?text=Ovos"
+              alt="Ovo Branco Grande"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Ovo Branco Grande
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">
+                Embalagem com 12 unidades.
+              </p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 12,99</span>
+                <span class="text-gray-500">/dúzia</span>
+              </div>
+              <button class="add-to-cart-button" data-product-id="ovo_branco">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 4: Leite Integral -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/A7D9F5/3B3B3B?text=Leite"
+              alt="Leite Integral"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Leite Integral
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">
+                Fonte de cálcio e vitaminas.
+              </p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 5,49</span>
+                <span class="text-gray-500">/litro</span>
+              </div>
+              <button
+                class="add-to-cart-button"
+                data-product-id="leite_integral"
+              >
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 5: Manteiga com Sal -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/FBF1C9/3B3B3B?text=Manteiga"
+              alt="Manteiga com Sal"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Manteiga com Sal
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">Cremosa e deliciosa.</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 8,75</span>
+                <span class="text-gray-500">/200g</span>
+              </div>
+              <button class="add-to-cart-button" data-product-id="manteiga">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 6: Café em Pó Tradicional -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/8B4513/FFFFFF?text=Café"
+              alt="Café em Pó Tradicional"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Café em Pó Tradicional
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">
+                Aroma intenso e sabor marcante.
+              </p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 15,90</span>
+                <span class="text-gray-500">/500g</span>
+              </div>
+              <button class="add-to-cart-button" data-product-id="cafe_po">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 7: Arroz Parboilizado -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/F5F5DC/3B3B3B?text=Arroz"
+              alt="Arroz Parboilizado"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Arroz Parboilizado 5kg
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">
+                Grãos soltinhos e nutritivos.
+              </p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 24,50</span>
+                <span class="text-gray-500">/pacote</span>
+              </div>
+              <button
+                class="add-to-cart-button"
+                data-product-id="arroz_parboilizado"
+              >
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Produto 8: Macarrão Espaguete -->
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/F7F0A8/3B3B3B?text=Macarrão"
+              alt="Macarrão Espaguete"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Macarrão Espaguete
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">Ideal para suas massas.</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 6,80</span>
+                <span class="text-gray-500">/pacote</span>
+              </div>
+              <button
+                class="add-to-cart-button"
+                data-product-id="macarrao_espaguete"
+              >
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://placehold.co/400x300/FFF5E1/3B3B3B?text=Sabonete"
+              alt="Sabonete em Barra"
+              class="product-image"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-900">
+                Sabonete em Barra
+              </h3>
+              <p class="text-gray-600 text-sm mt-1">Hidratante e suave.</p>
+              <div class="flex items-center justify-between mt-3">
+                <span class="text-2xl font-bold text-green-700">R$ 5,50</span>
+                <span class="text-gray-500">/unidade</span>
+              </div>
+              <button
+                class="add-to-cart-button"
+                data-product-id="sabonete_barra"
+              >
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Sugestões para Você -->
+      <section id="suggestions-section">
+        <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">
+          Sugestões para Você!
+        </h2>
+        <ul
+          id="suggested-products-list"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <!-- Sugestões serão renderizadas aqui -->
+        </ul>
+        <p
+          id="no-suggestions-message"
+          class="text-gray-500 italic text-center mt-4 hidden"
+        >
+          Nenhuma sugestão relevante encontrada. Tente adicionar outro item.
+        </p>
+      </section>
+    </main>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+        <p>&copy; 2025 Supermercado Fatec. Todos os direitos reservados.</p>
+        <p class="mt-2">Endereço: Rua da Fatec, 123 - Cidade, Estado</p>
+        <div class="flex justify-center space-x-4 mt-3">
+          <a
+            href="#"
+            class="text-white hover:text-gray-400 transition-colors duration-200"
+            >Privacidade</a
+          >
+          <a
+            href="#"
+            class="text-white hover:text-gray-400 transition-colors duration-200"
+            >Termos de Uso</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal do Carrinho -->
+    <div
+      id="cart-modal"
+      class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden"
+    >
+      <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+        <button
+          id="close-cart-modal"
+          class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-2xl"
+        >
+          &times;
+        </button>
+        <h2 class="text-2xl font-bold mb-4 text-center">Itens do Carrinho</h2>
+        <ul id="cart-items-list" class="mb-4">
+          <!-- Itens do carrinho serão inseridos aqui -->
+        </ul>
+        <button
+          id="close-cart-modal-bottom"
+          class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+
+    <script type="module">
+      // --- 1. Definições de Tipos (inline para simplificar no HTML) ---
+      // Removido: export interface ProductOption, TrainingProduct, SuggestedProduct
+
+      // Implementação do KNN
+      export class ProductKnnSuggester {
+        constructor(trainingProducts, allPossibleOptions) {
+          this.trainingProducts = trainingProducts;
+          this.allPossibleOptionIds = allPossibleOptions.map((opt) => opt.id);
+        }
+
+        convertOptionsToVector(selectedOptionIds) {
+          const vector = new Array(this.allPossibleOptionIds.length).fill(0);
+          selectedOptionIds.forEach((optionId) => {
+            const index = this.allPossibleOptionIds.indexOf(optionId);
+            if (index !== -1) {
+              vector[index] = 1;
+            }
+          });
+          return vector;
+        }
+
+        euclideanDistance(vec1, vec2) {
+          if (vec1.length !== vec2.length) {
+            throw new Error(
+              "Vetores devem ter o mesmo comprimento para calcular a distância Euclidiana."
+            );
+          }
+          let sumOfSquares = 0;
+          for (let i = 0; i < vec1.length; i++) {
+            sumOfSquares += Math.pow(vec1[i] - vec2[i], 2);
+          }
+          return Math.sqrt(sumOfSquares);
+        }
+
+        suggestProducts(queryProductOptionsIds, k = 3) {
+          if (k <= 0) {
+            console.error("K deve ser um número positivo.");
+            return [];
+          }
+
+          const queryVector = this.convertOptionsToVector(
+            queryProductOptionsIds
+          );
+
+          const distances = this.trainingProducts.map((product) => {
+            const productVector = this.convertOptionsToVector(
+              product.selectedOptionIds
+            );
+            const distance = this.euclideanDistance(queryVector, productVector);
+            return { product, distance };
+          });
+
+          distances.sort((a, b) => a.distance - b.distance);
+          const nearestNeighbors = distances.slice(0, k);
+
+          const suggestionCounts = {};
+
+          nearestNeighbors.forEach(({ product }) => {
+            product.frequentlyBoughtWith.forEach((suggestedProductId) => {
+              const suggestedProductName =
+                (
+                  this.trainingProducts.find(
+                    (p) => p.id === suggestedProductId
+                  ) || {}
+                ).name || `Produto Desconhecido (ID: ${suggestedProductId})`;
+              if (suggestionCounts[suggestedProductId]) {
+                suggestionCounts[suggestedProductId].count++;
+              } else {
+                suggestionCounts[suggestedProductId] = {
+                  name: suggestedProductName,
+                  count: 1,
+                };
+              }
+            });
+          });
+
+          const suggestions = Object.keys(suggestionCounts)
+            .map((id) => ({
+              id: id,
+              name: suggestionCounts[id].name,
+              similarityScore: suggestionCounts[id].count,
+            }))
+            .sort((a, b) => b.similarityScore - a.similarityScore);
+
+          return suggestions;
+        }
+      }
+
+      // --- 3. Dados de Treinamento (dados de supermercado) ---
+      const allProductOptions = [
+        { id: "tipo_grao", name: "Tipo: Grão" },
+        { id: "tipo_fatiado", name: "Tipo: Fatiado" },
+        { id: "tipo_doce", name: "Tipo: Doce" },
+        { id: "tipo_salgado", name: "Tipo: Salgado" },
+        { id: "origem_animal", name: "Origem: Animal" },
+        { id: "origem_vegetal", name: "Origem: Vegetal" },
+        { id: "refrigerado_sim", name: "Refrigerado: Sim" },
+        { id: "refrigerado_nao", name: "Refrigerado: Não" },
+        { id: "embalagem_kg", name: "Embalagem: Kg" },
+        { id: "embalagem_unidade", name: "Embalagem: Unidade" },
+        { id: "embalagem_lata", name: "Embalagem: Lata" },
+        { id: "sem_gluten", name: "Sem Glúten" },
+        { id: "organico", name: "Orgânico" },
+        { id: "categoria_lacteo", name: "Categoria: Lácteo" },
+        { id: "sabor_natural", name: "Sabor: Natural" },
+        { id: "categoria_proteina", name: "Categoria: Proteína" },
+        { id: "uso_culinario", name: "Uso: Culinário" },
+        { id: "categoria_higiene", name: "Categoria: Higiene" },
+      ];
+
+      const trainingProductsData = [
+        {
+          id: "pao_frances",
+          name: "Pão Francês",
+          price: 0.5,
+          selectedOptionIds: [
+            "tipo_grao",
+            "tipo_salgado",
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_unidade",
+          ],
+          frequentlyBoughtWith: [
+            "manteiga",
+            "queijo_prato",
+            "leite_integral",
+            "tomate",
+            "presunto",
+            "mussarela",
+            "cafe_po",
+          ],
+        },
+        {
+          id: "queijo_minas",
+          name: "Queijo Minas Frescal",
+          price: 28.9,
+          selectedOptionIds: [
+            "tipo_fatiado",
+            "tipo_salgado",
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_kg",
+            "categoria_lacteo",
+          ],
+          frequentlyBoughtWith: ["goiabada", "cafe_po", "torradas"],
+        },
+        {
+          id: "ovo_branco",
+          name: "Ovo Branco Grande",
+          price: 12.99,
+          selectedOptionIds: [
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_unidade",
+            "categoria_proteina",
+            "uso_culinario",
+          ],
+          frequentlyBoughtWith: [
+            "bacon",
+            "farinha_trigo",
+            "oleo_vegetal",
+            "sal_fino",
+            "fermento",
+          ],
+        },
+        {
+          id: "leite_integral",
+          name: "Leite Integral",
+          price: 5.49,
+          selectedOptionIds: [
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_unidade",
+            "categoria_lacteo",
+          ],
+          frequentlyBoughtWith: ["cafe_po", "acucar", "bolacha_cream_cracker"],
+        },
+        {
+          id: "manteiga",
+          name: "Manteiga com Sal",
+          price: 8.75,
+          selectedOptionIds: [
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_unidade",
+            "categoria_lacteo",
+          ],
+          frequentlyBoughtWith: ["pao_frances", "geleia_morango", "cafe_po"],
+        },
+        {
+          id: "tomate",
+          name: "Tomate Italiano",
+          price: 7.99,
+          selectedOptionIds: [
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_unidade",
+          ],
+          frequentlyBoughtWith: ["pao_frances", "queijo_minas", "presunto"],
+        },
+        {
+          id: "presunto",
+          name: "Presunto Saboroso",
+          price: 32.5,
+          selectedOptionIds: [
+            "tipo_fatiado",
+            "tipo_salgado",
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_unidade",
+            "categoria_proteina",
+          ],
+          frequentlyBoughtWith: ["pao_frances", "queijo_minas", "mussarela"],
+        },
+        {
+          id: "mussarela",
+          name: "Queijo Mussarela Fatiado",
+          price: 34.9,
+          selectedOptionIds: [
+            "tipo_fatiado",
+            "tipo_salgado",
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_unidade",
+            "categoria_lacteo",
+          ],
+          frequentlyBoughtWith: ["pao_frances", "presunto", "molho_tomate"],
+        },
+        {
+          id: "geleia_morango",
+          name: "Geleia de Morango",
+          price: 9.5,
+          selectedOptionIds: [
+            "tipo_doce",
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_unidade",
+          ],
+          frequentlyBoughtWith: ["pao_frances", "manteiga", "torradas"],
+        },
+        {
+          id: "cafe_po",
+          name: "Café em Pó Tradicional",
+          price: 15.9,
+          selectedOptionIds: [
+            "tipo_grao",
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_unidade",
+          ],
+          frequentlyBoughtWith: [
+            "pao_frances",
+            "leite_integral",
+            "acucar",
+            "bolo_coco",
+          ],
+        },
+        {
+          id: "fermento",
+          name: "Fermento Biológico Seco",
+          price: 3.99,
+          selectedOptionIds: [
+            "tipo_grao",
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_unidade",
+            "uso_culinario",
+          ],
+          frequentlyBoughtWith: ["farinha_trigo", "sal_fino", "ovo_branco"],
+        },
+        {
+          id: "arroz_parboilizado",
+          name: "Arroz Parboilizado 5kg",
+          price: 24.5,
+          selectedOptionIds: [
+            "tipo_grao",
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_kg",
+          ],
+          frequentlyBoughtWith: ["feijao_carioca", "oleo_vegetal", "sal_fino"],
+        },
+        {
+          id: "macarrao_espaguete",
+          name: "Macarrão Espaguete",
+          price: 6.8,
+          selectedOptionIds: [
+            "tipo_grao",
+            "origem_vegetal",
+            "refrigerado_nao",
+            "embalagem_unidade",
+            "sem_gluten",
+          ],
+          frequentlyBoughtWith: [
+            "molho_tomate",
+            "carne_moida",
+            "queijo_ralado",
+          ],
+        },
+        {
+          id: "iogurte_natural",
+          name: "Iogurte Natural",
+          price: 4.99,
+          selectedOptionIds: [
+            "tipo_doce",
+            "origem_animal",
+            "refrigerado_sim",
+            "embalagem_unidade",
+            "organico",
+            "categoria_lacteo",
+            "sabor_natural",
+          ],
+          frequentlyBoughtWith: ["granola", "frutas_vermelhas", "mel"],
+        },
+        {
+          id: "sabonete_barra",
+          name: "Sabonete em Barra",
+          price: 5.5,
+          selectedOptionIds: ["higiene_pessoal"],
+          frequentlyBoughtWith: ["shampoo", "condicionador", "creme_dental"],
+        },
+        {
+          id: "escova_dental",
+          name: "Escova Dental",
+          price: 3.5,
+          selectedOptionIds: ["higiene_pessoal"],
+          frequentlyBoughtWith: ["creme_dental", "fio_dental"],
+        },
+        {
+          id: "fio_dental",
+          name: "Fio Dental",
+          price: 4.2,
+          selectedOptionIds: ["higiene_pessoal"],
+          frequentlyBoughtWith: ["escova_dental"],
+        },
+        {
+          id: "bacon",
+          name: "Bacon Defumado",
+          price: 19.9,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "farinha_trigo",
+          name: "Farinha de Trigo",
+          price: 4.99,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "oleo_vegetal",
+          name: "Óleo Vegetal",
+          price: 7.99,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [
+            "sal_fino",
+            "arroz_parboilizado",
+            "feijao_carioca",
+          ],
+        },
+        {
+          id: "queijo_prato",
+          name: "Queijo Prato Fatiado",
+          price: 29.9,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "goiabada",
+          name: "Goiabada Cascão",
+          price: 8.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "torradas",
+          name: "Torradas Integral",
+          price: 6.2,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "acucar",
+          name: "Açúcar Refinado",
+          price: 3.99,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "bolacha_cream_cracker",
+          name: "Bolacha Cream Cracker",
+          price: 4.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "bolo_coco",
+          name: "Bolo de Coco Caseiro",
+          price: 12.0,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "feijao_carioca",
+          name: "Feijão Carioca 1kg",
+          price: 8.99,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "sal_fino",
+          name: "Sal Fino",
+          price: 2.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "tomate",
+          name: "Tomate Italiano",
+          price: 7.99,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "presunto",
+          name: "Presunto Saboroso",
+          price: 32.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "mussarela",
+          name: "Queijo Mussarela Fatiado",
+          price: 34.9,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "molho_tomate",
+          name: "Molho de Tomate",
+          price: 4.99,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "carne_moida",
+          name: "Carne Moída Patinho",
+          price: 29.9,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "queijo_ralado",
+          name: "Queijo Ralado Parmesão",
+          price: 7.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "granola",
+          name: "Granola Crocante",
+          price: 13.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: ["mel", "iogurte_natural"],
+        },
+        {
+          id: "frutas_vermelhas",
+          name: "Frutas Vermelhas Congeladas",
+          price: 18.9,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "mel",
+          name: "Mel Puro",
+          price: 15.0,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "shampoo",
+          name: "Shampoo Neutro",
+          price: 9.9,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "condicionador",
+          name: "Condicionador Hidratante",
+          price: 11.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "creme_dental",
+          name: "Creme Dental Menta",
+          price: 6.0,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+        {
+          id: "geleia_morango",
+          name: "Geleia de Morango",
+          price: 9.5,
+          selectedOptionIds: [],
+          frequentlyBoughtWith: [],
+        },
+      ];
+
+      //  Lógica de Interação do Frontend e Sugestões ---
+
+      // Inicializa o sugeridor KNN com os dados de treinamento.
+      const suggester = new ProductKnnSuggester(
+        trainingProductsData,
+        allProductOptions
+      );
+
+      const cartCountElement = document.getElementById("cart-count");
+      const suggestionsSection = document.getElementById("suggestions-section");
+      const suggestedProductsList = document.getElementById(
+        "suggested-products-list"
+      );
+      const noSuggestionsMessage = document.getElementById(
+        "no-suggestions-message"
+      );
+
+      let cartItemCount = 0; // Contador de itens no carrinho
+      const cartItems = new Set(); // Para rastrear os IDs dos produtos no carrinho
+
+      /**
+       * Atualiza a contagem do carrinho na interface.
+       */
+      function updateCartCount() {
+        if (cartCountElement) {
+          cartCountElement.textContent = cartItemCount.toString();
+        }
+      }
+
+      /**
+       * Renderiza as sugestões de produtos na seção de sugestões.
+       * @param suggestions A lista de produtos sugeridos.
+       */
+      function renderSuggestions(suggestions) {
+        if (
+          !suggestedProductsList ||
+          !suggestionsSection ||
+          !noSuggestionsMessage
+        )
+          return;
+
+        // Limpa sugestões anteriores
+        suggestedProductsList.innerHTML = "";
+        suggestionsSection.classList.remove("visible"); // Esconde por padrão
+        noSuggestionsMessage.classList.add("hidden"); // Esconde mensagem de "sem sugestões"
+
+        // Limite de 5 sugestões
+        const limitedSuggestions = suggestions.slice(0, 5);
+
+        if (limitedSuggestions.length === 0) {
+          noSuggestionsMessage.classList.remove("hidden"); // Mostra a mensagem se não houver sugestões
+        } else {
+          limitedSuggestions.forEach((s) => {
+            const produto = trainingProductsData.find((p) => p.id === s.id);
+            const preco =
+              produto && produto.price
+                ? `R$ ${produto.price.toFixed(2).replace(".", ",")}`
+                : "";
+            const li = document.createElement("li");
+            li.className = "suggested-item";
+            li.innerHTML = `
+        <div>
+          <span class="font-semibold">${s.name}</span>
+          <span class="block text-green-700 font-bold mt-1">${preco}</span>
+        </div>
+        <button
+          class="add-to-cart-suggestion-button add-to-cart-button bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 mt-2"
+          data-product-id="${s.id}">
+          Adicionar ao Carrinho
+        </button>
+      `;
+            suggestedProductsList.appendChild(li);
+          });
+
+          // Adiciona eventos de clique aos botões de sugestão
+          document
+            .querySelectorAll(".add-to-cart-suggestion-button")
+            .forEach((button) => {
+              button.addEventListener("click", handleAddToCartClick);
+            });
+
+          suggestionsSection.classList.add("visible"); // Torna a seção visível
+        }
+      }
+
+      // --- 5. Lógica de Carrinho e Interação com Produtos ---
+      // Adiciona eventos de clique aos botões de "Adicionar ao Carrinho"
+      document.querySelectorAll(".add-to-cart-button").forEach((button) => {
+        button.addEventListener("click", handleAddToCartClick);
+      });
+
+      /**
+       * Lida com o clique no botão "Adicionar ao Carrinho".
+       * @param event O evento de clique.
+       */
+      function handleAddToCartClick(event) {
+        const button = event.target;
+        const productId = button.dataset.productId; // Obtém o ID do produto do botão
+
+        if (productId) {
+          cartItemCount++; // Incrementa o contador do carrinho
+          updateCartCount(); // Atualiza a contagem na interface
+          cartItems.add(productId); // Adiciona o item ao nosso rastreador de carrinho
+
+          // Encontra o produto completo nos dados de treinamento
+          const product = trainingProductsData.find((p) => p.id === productId);
+
+          if (product) {
+            // Usa as opções do produto como base para a sugestão
+            const queryOptions = product.selectedOptionIds;
+            const kValue = 3; // Pode ajustar o K para as sugestões
+
+            const suggestions = suggester.suggestProducts(queryOptions, kValue);
+
+            // Filtra para remover todos os produtos que já estão no carrinho
+            const filteredSuggestions = suggestions.filter(
+              (s) => !cartItems.has(s.id)
+            );
+
+            renderSuggestions(filteredSuggestions);
+          } else {
+            console.warn(
+              `Produto com ID '${productId}' não encontrado nos dados de treinamento.`
+            );
+            renderSuggestions([]); // Exibe vazio se o produto não for encontrado
+          }
+        }
+      }
+
+      // Função para abrir o modal do carrinho
+      function openCartModal() {
+        document.getElementById("cart-modal").classList.remove("hidden");
+        renderCartItems();
+      }
+
+      // Função para fechar o modal do carrinho
+      function closeCartModal() {
+        document.getElementById("cart-modal").classList.add("hidden");
+      }
+
+      // Renderiza os itens do carrinho no modal
+      function renderCartItems() {
+        const list = document.getElementById("cart-items-list");
+        list.innerHTML = "";
+        let total = 0;
+        if (cartItems.size === 0) {
+          list.innerHTML =
+            '<li class="text-gray-500 text-center">Carrinho vazio.</li>';
+          // Exibe total zerado
+          if (document.getElementById("cart-total-value")) {
+            document.getElementById("cart-total-value").textContent = "R$ 0,00";
+          }
+          return;
+        }
+        cartItems.forEach((id) => {
+          const prod = trainingProductsData.find((p) => p.id === id);
+          const name = prod ? prod.name : id;
+          const preco =
+            prod && prod.price
+              ? `R$ ${prod.price.toFixed(2).replace(".", ",")}`
+              : "";
+          if (prod && prod.price) total += prod.price;
+          const li = document.createElement("li");
+          li.className = "py-2 border-b flex justify-between items-center";
+          li.innerHTML = `
+      <span>${name} <span class="text-green-700 font-bold">${preco}</span></span>
+      <button class="remove-cart-item bg-red-500 text-white rounded px-2 py-1 text-xs" data-product-id="${id}">Excluir</button>
+    `;
+          list.appendChild(li);
+        });
+
+        // Exibe o valor total
+        let totalDiv = document.getElementById("cart-total");
+        if (!totalDiv) {
+          totalDiv = document.createElement("div");
+          totalDiv.id = "cart-total";
+          totalDiv.className = "text-right font-bold text-lg mt-2";
+          totalDiv.innerHTML = `Total: <span id="cart-total-value" class="text-green-700">R$ ${total
+            .toFixed(2)
+            .replace(".", ",")}</span>`;
+          list.parentNode.appendChild(totalDiv);
+        } else {
+          document.getElementById("cart-total-value").textContent = `R$ ${total
+            .toFixed(2)
+            .replace(".", ",")}`;
+        }
+
+        // Adiciona evento aos botões de excluir
+        document.querySelectorAll(".remove-cart-item").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            const prodId = this.dataset.productId;
+            cartItems.delete(prodId);
+            cartItemCount = cartItems.size;
+            updateCartCount();
+            renderCartItems();
+            renderSuggestions([]);
+          });
+        });
+      }
+
+      // Evento para abrir o modal ao clicar no ícone do carrinho
+      document
+        .querySelector(".relative svg")
+        .addEventListener("click", openCartModal);
+
+      // Eventos para fechar o modal
+      document
+        .getElementById("close-cart-modal")
+        .addEventListener("click", closeCartModal);
+      document
+        .getElementById("close-cart-modal-bottom")
+        .addEventListener("click", closeCartModal);
+
+      // Fecha o modal ao clicar fora da caixa
+      document
+        .getElementById("cart-modal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeCartModal();
+        });
+    </script>
+  </body>
+</html>

@@ -5,24 +5,24 @@ const produtos = [
     { id: 2, nome: 'Tomate', preco: 1.50, imagem: 'https://images.unsplash.com/photo-1607305387299-a3d9611cd469?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: true },
     { id: 3, nome: 'Alface', preco: 1.20, imagem: 'https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: true },
     { id: 4, nome: 'Queijo', preco: 5.60, imagem: 'https://images.unsplash.com/photo-1589881133595-a3c085cb731d?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: true },
-    { id: 5, nome: 'Ovo', preco: 16.90, imagem: 'https://images.pexels.com/photos/6966599/pexels-photo-6966599.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: true, perecivel: true },
+    { id: 5, nome: 'Ovo', preco: 16.90, imagem: 'https://www.yamauchi.com.br/wp-content/uploads/2023/10/conceito-de-espaco-de-ovos-de-produtos-agricolas-frescos-e-naturais-para-texto.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: true, perecivel: true },
     { id: 6, nome: 'Leite', preco: 5.60, imagem: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: true },
-    { id: 7, nome: 'Ketchup', preco: 6.90, imagem: 'https://images.pexels.com/photos/4113834/pexels-photo-4113834.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: true, perecivel: false },
+    { id: 7, nome: 'Ketchup', preco: 6.90, imagem: './img/ketchup.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: true, perecivel: false },
     { id: 8, nome: 'Refrigerante', preco: 5.00, imagem: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: false },
     { id: 9, nome: 'Arroz', preco: 22.90, imagem: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&h=300', alimento: true, perecivel: false },
-    { id: 10, nome: 'Feijão', preco: 8.75, imagem: 'https://images.pexels.com/photos/8178206/pexels-photo-8178206.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: true, perecivel: false },
+    { id: 10, nome: 'Feijão', preco: 8.75, imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5ev-P5qMrtBAYyVoRd6maIdt06YD-GZmrg&s?auto=compress&cs=tinysrgb&w=300&h=300', alimento: true, perecivel: false },
     
     // Produtos de limpeza
-    { id: 11, nome: 'Detergente', preco: 2.50, imagem: 'https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 12, nome: 'Sabão em Pó', preco: 15.90, imagem: 'https://images.pexels.com/photos/5217945/pexels-photo-5217945.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 13, nome: 'Desinfetante', preco: 8.75, imagem: 'https://images.pexels.com/photos/6213747/pexels-photo-6213747.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 14, nome: 'Amaciante', preco: 12.50, imagem: 'https://images.pexels.com/photos/5217954/pexels-photo-5217954.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 15, nome: 'Água Sanitária', preco: 3.99, imagem: 'https://images.pexels.com/photos/6213742/pexels-photo-6213742.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 16, nome: 'Limpa Vidros', preco: 7.50, imagem: 'https://images.pexels.com/photos/6213756/pexels-photo-6213756.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 17, nome: 'Multiuso', preco: 9.90, imagem: 'https://images.pexels.com/photos/4389665/pexels-photo-4389665.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 18, nome: 'Sabão em Barra', preco: 6.49, imagem: 'https://images.pexels.com/photos/5217962/pexels-photo-5217962.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 19, nome: 'Esponja', preco: 3.25, imagem: 'https://images.pexels.com/photos/6021671/pexels-photo-6021671.jpeg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
-    { id: 20, nome: 'Luvas de Limpeza', preco: 5.75, imagem: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=300&h=300', alimento: false, perecivel: false }
+    { id: 11, nome: 'Detergente', preco: 2.50, imagem: 'https://t10917.vteximg.com.br/arquivos/ids/170159/DETERG--LIQ-500ML-YPE-NEUTRO_IMG1.jpg?v=638754193580270000?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 12, nome: 'Sabão em Pó', preco: 15.90, imagem: 'https://static1.efacil.com.br/wcsstore/ExtendedSitesCatalogAssetStore/Imagens/360/1703135_01.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 13, nome: 'Desinfetante', preco: 8.75, imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgS9KF8xfDj_d2tqjOUGnS1f57dWmIccU7gA&s?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 14, nome: 'Amaciante', preco: 12.50, imagem: 'https://a-static.mlcdn.com.br/1500x1500/amaciante-de-roupa-concentrado-com-oleo-de-argan-brisa-elegante-comfort-1l/magazineluiza/221313400/aad343e7118a40c9b7feda1437a2f254.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 15, nome: 'Água Sanitária', preco: 3.99, imagem: 'https://www.brilhante.com.br/images/h0nadbhvm6m4/2yC8ICjyX4SFPv4VP3mSZ/295b0bd6638e4b99718f5bdb0c31ec3a/QV9ndWFfU2FuaXRhX3JpYV9CcmlsaGFudGVfQ2xvcm9fQXRpdm9fLnBuZw/1080w-1080h/%C3%A1gua-sanit%C3%A1ria-brilhante-packshot.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 16, nome: 'Limpa Vidros', preco: 7.50, imagem: 'https://m.media-amazon.com/images/I/61MSotPmPXL.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 17, nome: 'Multiuso', preco: 9.90, imagem: 'https://cdn.awsli.com.br/800x800/153/153933/produto/48675529d37080a55.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 18, nome: 'Sabão em Barra', preco: 6.49, imagem: 'https://www.atacadaodalimpeza.com.br/163-thickbox_default/sabao-em-barra-ype-glicerinado-5x200g.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 19, nome: 'Esponja', preco: 3.25, imagem: 'https://cdn.awsli.com.br/600x450/1935/1935087/produto/100363504/esponja-bettanin-super-pro-553e288a.jpg?auto=compress&cs=tinysrgb&w=300&h=300', alimento: false, perecivel: false },
+    { id: 20, nome: 'Luvas de Limpeza', preco: 5.75, imagem: 'https://img.irroba.com.br/fit-in/600x600/filters:fill(fff):quality(80)/casememb/catalog/api/casememb_blingirr/11225-3.jpg?auto=format&fit=crop&w=300&h=300', alimento: false, perecivel: false }
 ];
 
 let listaProdutos = [];
